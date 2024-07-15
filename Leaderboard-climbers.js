@@ -63,3 +63,13 @@ function leaderboardSort(leaderboard, changes) {
 }
 
 // or
+
+function leaderboardSort(leaderboard, changes) {
+  changes.forEach(el => {
+    const [name, value] = el.split(' ');
+    const oldIndex = leaderboard.indexOf(name);
+    leaderboard.splice(oldIndex, 1);
+    leaderboard.splice(oldIndex - Number(value), 0, name)
+  })
+  return leaderboard
+}
