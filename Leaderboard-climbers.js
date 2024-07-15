@@ -46,3 +46,18 @@ followed by a space and a + or - sign followed by a number.
 
 
 // Solution
+
+function leaderboardSort(leaderboard, changes) {
+  for(let i = 0; i < changes.length; i++){
+    let data = changes[i].split(' ');
+    let index = leaderboard.indexOf(data[0]) - Number(data[1]);
+    let len = leaderboard.length-1;
+    
+    if(index >= len)index = len
+    if(index <= 0)index = 0;
+    
+    leaderboard.splice(leaderboard.indexOf(data[0]), 1);
+    leaderboard.splice(index, 0, data[0]);
+  }
+  return leaderboard;
+}
